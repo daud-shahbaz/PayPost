@@ -1,0 +1,48 @@
+
+<!-- 
+User generates an address
+Gets faucet coins
+Sees balance
+Pays to post
+Balance decreases
+Posts become scarce
+Spam becomes expensive -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PayPost - Post Value</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class = "container">
+      <div class="wallet">
+        <h2>Your Wallet</h2>
+        <div class = "wallet-information">
+          <p><strong>Address:</strong> <code id="address">Not loaded</code></p>
+          <p><strong>Balance:</strong> <span id="balance"> 0</span>coins</p>
+        </div>
+        <button id="generate_button" onclick="generateWallet()">Generate New Wallet</button>
+        <button id="faucet_button" onclick="requestFaucet()">Get coins</button>
+      </div>
+
+      <div class = "post">
+        <h2> Post </h2>
+        <textarea id="post_content" placeholder="Anything on your mind, Remember you are paying to post here!" rows="4"></textarea>
+        <div class="post_information">
+          <p>Cost: <strong id="postCost">10</strong> coins</p>
+          <p>Posts on chain: <strong id="postCount">0</strong></p>
+        </div>
+        <button id = "post_button" onclick="submitPost()">Pay (10 coins)</button>
+      </div>
+
+      <div class="feed">
+        <h2>For you</h2>
+        <div id = "postsFeed"></div>
+      </div>
+
+      <div id ="status"></div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
