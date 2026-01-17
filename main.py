@@ -221,7 +221,7 @@ class Blockchain(object):
 
         
     
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.', static_url_path='')
 CORS(app)
 
 # Generate a unique address for this node
@@ -230,6 +230,10 @@ node_identifier = str(uuid4()).replace('-','')
 blockchain = Blockchain()
 
 @app.route('/', methods=['GET'])
+def index():
+    return app.send_static_file('index.html')
+
+@app.route('/api/home', methods=['GET'])
 def home():
     return jsonify({'message': 'Welcome to PyChain'}), 200
 
